@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrcMessageSharp", "src\IrcMessageSharp\IrcMessageSharp.csproj", "{CB282042-F3C6-44AF-AF4C-DB87A13839FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrcMessageSharp.Spec", "spec\IrcMessageSharp.Spec\IrcMessageSharp.Spec.csproj", "{BFA48D9E-3BE1-45F4-B095-1D09FB01D38D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CE8F4EF9-6EF0-4192-AE99-8068EA8BEC31}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB282042-F3C6-44AF-AF4C-DB87A13839FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB282042-F3C6-44AF-AF4C-DB87A13839FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB282042-F3C6-44AF-AF4C-DB87A13839FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB282042-F3C6-44AF-AF4C-DB87A13839FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFA48D9E-3BE1-45F4-B095-1D09FB01D38D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFA48D9E-3BE1-45F4-B095-1D09FB01D38D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFA48D9E-3BE1-45F4-B095-1D09FB01D38D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFA48D9E-3BE1-45F4-B095-1D09FB01D38D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

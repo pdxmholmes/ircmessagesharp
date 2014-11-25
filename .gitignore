@@ -1,0 +1,8 @@
+[Bb]in/
+[Oo]bj/
+[Ww]orking/
+[Pp]ackages/
+*.suo
+*.user
+_ReSharper.*
+*.[Rr]e[Ss]harper.user
