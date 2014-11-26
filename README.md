@@ -42,21 +42,21 @@ The IrcMessage object has the following properties:
 
 In addition, the IrcMessage class offers some utility properties and functions.
 
-##### `IsPrefixHostmask bool`: Returns true if message has a prefix and that prefix is a hostmask in the form nick!user@host.
+- `IsPrefixHostmask bool`: Returns true if message has a prefix and that prefix is a hostmask in the form nick!user@host.
 ```C#
 var message = IrcMessage.Parse(":brainling!matt@cloak PING");
 var isHostMask = message.IsPrefixHostmask; // true
 
 ```
 
-##### `IsPrefixServer bool`: Returns true if message has a prefix and that prefix is a server in the form server.tld.*.
+- `IsPrefixServer bool`: Returns true if message has a prefix and that prefix is a server in the form server.tld.*.
 ```C#
 var message = IrcMessage.Parse(":test.irc.com PING");
 var isServer = message.IsPrefixServer; // true
 
 ```
 
-##### `GetHostmaskFromPrefix Hostmask`: Returns a parsed hostmask object if the message has a prefix and that prefix is a hostmask, otherwise null.
+- `GetHostmaskFromPrefix Hostmask`: Returns a parsed hostmask object if the message has a prefix and that prefix is a hostmask, otherwise null.
 ```C#
 var message = IrcMessage.Parse(":brainling!matt@cloak PING");
 var hostmask = message.GetHostmaskFromPrefix();
