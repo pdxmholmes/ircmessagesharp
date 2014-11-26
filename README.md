@@ -52,7 +52,7 @@ var isHostMask = message.IsPrefixHostmask; // true
 ##### `IsPrefixServer bool`: Returns true if message has a prefix and that prefix is a server in the form server.tld.*.
 ```C#
 var message = IrcMessage.Parse(":test.irc.com PING");
-var isHostMask = message.IsPrefixServer; // true
+var isServer = message.IsPrefixServer; // true
 
 ```
 
