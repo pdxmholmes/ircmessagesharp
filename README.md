@@ -39,7 +39,7 @@ The IrcMessage object has the following properties:
 - `Tags IDictionary<string, string>`: The tags parsed from the message. Can be empty. Tags with no value (flags) will have the value 'true' in the dictionary.
 
 ## Credit
-Based on the work of **Fionn Kelleher** (expr) and his excellent [irc-message JavaScript library](https://github.com/expr/irc-message)
+Based on the work of **Fionn Kelleher** ([expr](https://github.com/expr)) and his excellent [irc-message JavaScript library](https://github.com/expr/irc-message)
 
 ## Roadmap
 Version Roadmap
