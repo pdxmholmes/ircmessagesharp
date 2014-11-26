@@ -73,6 +73,9 @@ Hostmask has the following properties:
 ## Credit
 Based on the work of **Fionn Kelleher** ([expr](https://github.com/expr)) and his excellent [irc-message JavaScript library](https://github.com/expr/irc-message)
 
+## Tests
+IrcMessage# has a full test suite built using SpecFlow. You can find all the specs that IrcMessage# passes in the 'spec' directory. As of this writing (11/25/2014) IrcMessage# passes the same minimum set of specs as irc-message.
+
 ## Roadmap
 Version Roadmap
 - 0.7.0: More work on the streaming infrastructure, IrcStreamReader is a bit bare bones
