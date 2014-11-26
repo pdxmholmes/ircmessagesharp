@@ -6,3 +6,4 @@
 *.user
 _ReSharper.*
 *.[Rr]e[Ss]harper.user
+*.nupkg

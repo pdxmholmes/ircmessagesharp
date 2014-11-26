@@ -27,19 +27,18 @@
 #endregion
 
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle ("IrcMessageSharp")]
-[assembly: AssemblyDescription ("IRC message parser for .NET 4.5")]
+[assembly: AssemblyTitle ("IrcMessage#")]
+[assembly: AssemblyDescription ("A fast IRC message parser written in C# for the .NET Framework")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("")]
-[assembly: AssemblyProduct ("IrcMessageSharp")]
-[assembly: AssemblyCopyright ("Copyright Matt Holmes ©2014")]
+[assembly: AssemblyCompany ("Matt Holmes")]
+[assembly: AssemblyProduct ("IrcMessage#")]
+[assembly: AssemblyCopyright ("Copyright ©2014 Matt Holmes")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 [assembly: ComVisible (false)]
 [assembly: Guid ("99568a8a-1af0-4cee-906b-6e4d664e2402")]
-[assembly: AssemblyVersion ("0.5.0.0")]
-[assembly: AssemblyFileVersion ("0.5.0.0")]
-[assembly: AssemblyInformationalVersion ("0.5.0")]
+[assembly: AssemblyVersion ("0.5.1.0")]
+[assembly: AssemblyFileVersion ("0.5.1.0")]
+[assembly: AssemblyInformationalVersion ("0.5.1")]
