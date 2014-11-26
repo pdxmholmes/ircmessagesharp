@@ -454,6 +454,61 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("a message with hostmask prefix and command, testing prefix for hostmask")]
+        public virtual void AMessageWithHostmaskPrefixAndCommandTestingPrefixForHostmask()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("a message with hostmask prefix and command, testing prefix for hostmask", ((string[])(null)));
+#line 149
+this.ScenarioSetup(scenarioInfo);
+#line 150
+ testRunner.Given("IRC message \':nick!user@host FOO\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 151
+ testRunner.When("message is parsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 152
+ testRunner.Then("prefix is a hostmask", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("a message with server prefix and command, testing prefix for server")]
+        public virtual void AMessageWithServerPrefixAndCommandTestingPrefixForServer()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("a message with server prefix and command, testing prefix for server", ((string[])(null)));
+#line 154
+this.ScenarioSetup(scenarioInfo);
+#line 155
+ testRunner.Given("IRC message \':test.irc.com FOO\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 156
+ testRunner.When("message is parsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 157
+ testRunner.Then("prefix is a server", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("a message with hostmask prefix and command, getting hostmask from prefix")]
+        public virtual void AMessageWithHostmaskPrefixAndCommandGettingHostmaskFromPrefix()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("a message with hostmask prefix and command, getting hostmask from prefix", ((string[])(null)));
+#line 159
+this.ScenarioSetup(scenarioInfo);
+#line 160
+ testRunner.Given("IRC message \':nick!user@host FOO\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 161
+ testRunner.When("hostmask is requested", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 162
+ testRunner.Then("hostmask has nickname \'nick\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 163
+ testRunner.Then("hostmask has username \'user\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 164
+ testRunner.Then("hostmask has hostname \'host\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

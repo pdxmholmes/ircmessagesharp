@@ -7,6 +7,8 @@ We currently only support NuGet for installation
     Install-Package IrcMessageSharp
 
 ## Usage
+
+### Basic usage as a parser
 ```C#
 var line = ":matt!brainling@cloak PRIVMSG #csharp :Hello world!"
 
@@ -37,6 +39,36 @@ The IrcMessage object has the following properties:
 - `Prefix string`: A prefix if one was parsed from the message, otherwise String.Empty
 - `Params IList<string>`: The parameters parsed from the message. Can be empty.
 - `Tags IDictionary<string, string>`: The tags parsed from the message. Can be empty. Tags with no value (flags) will have the value 'true' in the dictionary.
+
+In addition, the IrcMessage class offers some utility properties and functions.
+
+### `IsPrefixHostmask bool`: Returns true if message has a prefix and that prefix is a hostmask in the form nick!user@host.
+```C#
+var message = IrcMessage.Parse(":brainling!matt@cloak PING");
+var isHostMask = message.IsPrefixHostmask; // true
+
+```
+
+### `IsPrefixServer bool`: Returns true if message has a prefix and that prefix is a server in the form server.tld.*.
+```C#
+var message = IrcMessage.Parse(":test.irc.com PING");
+var isHostMask = message.IsPrefixServer; // true
+
+```
+
+### `GetHostmaskFromPrefix Hostmask`: Returns a parsed hostmask object if the message has a prefix and that prefix is a hostmask, otherwise null.
+```C#
+var message = IrcMessage.Parse(":brainling!matt@cloak PING");
+var hostmask = message.GetHostmaskFromPrefix();
+Console.WriteLine(hostmask.Nickname); // brainling
+Console.WriteLine(hostmask.Username); // matt
+Console.WriteLine(hostmask.Hostname); // cloak
+```
+
+Hostmask has the following properties:
+- `Nickname string`: Nickname provided in the hostmask (nick!*@*)
+- `Username string`: Username provided in the hostmask (*!user@*)
+- `Hostname string`: Hostname provided in the hostmask (*!*@host)
 
 ## Credit
 Based on the work of **Fionn Kelleher** ([expr](https://github.com/expr)) and his excellent [irc-message JavaScript library](https://github.com/expr/irc-message)

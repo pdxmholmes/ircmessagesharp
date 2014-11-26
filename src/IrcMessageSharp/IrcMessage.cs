@@ -29,6 +29,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace IrcMessageSharp {
     // C# implementation of Fionn Kelleher's irc-message for JavaScript:
@@ -37,6 +38,12 @@ namespace IrcMessageSharp {
     // Which is itself an impelemntation of RFC 2812: http://tools.ietf.org/html/rfc2812
     // http://ircv3.atheme.org/specification/message-tags-3.2
     public class IrcMessage {
+        #region Fields
+
+        private static readonly Regex HostmaskRegex = new Regex ("[!@]", RegexOptions.Compiled);
+
+        #endregion
+
         #region Constructors
 
         public IrcMessage () {
@@ -51,6 +58,23 @@ namespace IrcMessageSharp {
         #region Properties
 
         public string Command { get; set; }
+
+        public bool IsPrefixHostmask {
+            get {
+                return !String.IsNullOrWhiteSpace (Prefix)
+                       && Prefix.Contains ("@")
+                       && Prefix.Contains ("!");
+            }
+        }
+
+        public bool IsPrefixServer {
+            get {
+                return !String.IsNullOrWhiteSpace (Prefix)
+                       && !IsPrefixHostmask
+                       && Prefix.Contains (".");
+            }
+        }
+
         public IList<string> Params { get; private set; }
         public string Prefix { get; set; }
         public IDictionary<string, string> Tags { get; private set; }
@@ -161,6 +185,19 @@ namespace IrcMessageSharp {
             }
         }
 
+        public Hostmask GetHostmaskFromPrefix () {
+            if (!IsPrefixHostmask) {
+                return null;
+            }
+
+            var parts = HostmaskRegex.Split (Prefix);
+            return new Hostmask {
+                Nickname = parts[0],
+                Username = parts[1],
+                Hostname = parts[2]
+            };
+        }
+
         public override string ToString () {
             if (String.IsNullOrWhiteSpace (Command)) {
                 return String.Empty;
@@ -211,6 +248,20 @@ namespace IrcMessageSharp {
             }
 
             return position;
+        }
+
+        #endregion
+
+        #region Nested type: Hostmask
+
+        public class Hostmask {
+            #region Properties
+
+            public string Hostname { get; set; }
+            public string Nickname { get; set; }
+            public string Username { get; set; }
+
+            #endregion
         }
 
         #endregion

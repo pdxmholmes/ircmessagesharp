@@ -145,3 +145,20 @@ Scenario: a message with tags, prefix, command, multiple middle and trailing par
 	Then param 4 equals 'Test parameter'
 	Then prefix equals 'test.prefix'
 	Then command equals 'FOO'
+
+Scenario: a message with hostmask prefix and command, testing prefix for hostmask
+	Given IRC message ':nick!user@host FOO'
+	When message is parsed
+	Then prefix is a hostmask
+
+Scenario: a message with server prefix and command, testing prefix for server
+	Given IRC message ':test.irc.com FOO'
+	When message is parsed
+	Then prefix is a server
+
+Scenario: a message with hostmask prefix and command, getting hostmask from prefix
+	Given IRC message ':nick!user@host FOO'
+	When hostmask is requested
+	Then hostmask has nickname 'nick'
+	Then hostmask has username 'user'
+	Then hostmask has hostname 'host'

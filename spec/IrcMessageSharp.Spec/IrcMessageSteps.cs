@@ -35,6 +35,7 @@ namespace IrcMessageSharp.Spec {
     public class IrcMessageSteps {
         #region Fields
 
+        private IrcMessage.Hostmask _hostmask;
         private string _message;
         private IrcMessage _parsedMessage;
 
@@ -50,6 +51,21 @@ namespace IrcMessageSharp.Spec {
         [Then (@"command equals '(.*)'")]
         public void ThenCommandEquals (string p0) {
             Assert.AreEqual (p0, _parsedMessage.Command);
+        }
+
+        [Then (@"hostmask has hostname '(.*)'")]
+        public void ThenHostmaskHasHostname (string p0) {
+            Assert.AreEqual (p0, _hostmask.Hostname);
+        }
+
+        [Then (@"hostmask has nickname '(.*)'")]
+        public void ThenHostmaskHasNickname (string p0) {
+            Assert.AreEqual (p0, _hostmask.Nickname);
+        }
+
+        [Then (@"hostmask has username '(.*)'")]
+        public void ThenHostmaskHasUsername (string p0) {
+            Assert.AreEqual (p0, _hostmask.Username);
         }
 
         [Then (@"param (\d+) equals '(.*)'")]
@@ -72,6 +88,16 @@ namespace IrcMessageSharp.Spec {
             Assert.AreEqual (p0, _parsedMessage.Prefix);
         }
 
+        [Then (@"prefix is a hostmask")]
+        public void ThenPrefixIsAHostmask () {
+            Assert.IsTrue (_parsedMessage.IsPrefixHostmask);
+        }
+
+        [Then (@"prefix is a server")]
+        public void ThenPrefixIsAServer () {
+            Assert.IsTrue (_parsedMessage.IsPrefixServer);
+        }
+
         [Then (@"prefix is blank")]
         public void ThenPrefixIsBlank () {
             Assert.IsTrue (String.IsNullOrEmpty (_parsedMessage.Prefix));
@@ -90,6 +116,12 @@ namespace IrcMessageSharp.Spec {
         [Then (@"tags is empty")]
         public void ThenTagsIsEmpty () {
             Assert.IsEmpty (_parsedMessage.Tags);
+        }
+
+        [When (@"hostmask is requested")]
+        public void WhenHostmaskIsRequested () {
+            _parsedMessage = IrcMessage.Parse (_message);
+            _hostmask = _parsedMessage.GetHostmaskFromPrefix ();
         }
 
         [When (@"message is parsed")]
