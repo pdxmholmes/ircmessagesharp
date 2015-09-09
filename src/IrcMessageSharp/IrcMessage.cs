@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (c) 2011, Matt Holmes
+// Copyright (c) 2015, Matt Holmes
 // All rights reserved.
 // 
 // Redistribution and use in source and binary forms, with or without
@@ -38,13 +38,7 @@ namespace IrcMessageSharp {
     // Which is itself an impelemntation of RFC 2812: http://tools.ietf.org/html/rfc2812
     // http://ircv3.atheme.org/specification/message-tags-3.2
     public class IrcMessage {
-        #region Fields
-
         private static readonly Regex HostmaskRegex = new Regex ("[!@]", RegexOptions.Compiled);
-
-        #endregion
-
-        #region Constructors
 
         public IrcMessage () {
             Command = String.Empty;
@@ -52,10 +46,6 @@ namespace IrcMessageSharp {
             Params = new List<string> ();
             Tags = new Dictionary<string, string> ();
         }
-
-        #endregion
-
-        #region Properties
 
         public string Command { get; set; }
 
@@ -78,10 +68,6 @@ namespace IrcMessageSharp {
         public IList<string> Params { get; private set; }
         public string Prefix { get; set; }
         public IDictionary<string, string> Tags { get; private set; }
-
-        #endregion
-
-        #region Public Methods
 
         public static IrcMessage Parse (string line) {
             if (String.IsNullOrWhiteSpace (line)) {
@@ -238,10 +224,6 @@ namespace IrcMessageSharp {
             return String.Join (" ", parts);
         }
 
-        #endregion
-
-        #region Private Methods
-
         private static int SkipSpaces (string text, int position) {
             while (position < text.Length && text[position] == ' ') {
                 position++;
@@ -250,20 +232,10 @@ namespace IrcMessageSharp {
             return position;
         }
 
-        #endregion
-
-        #region Nested type: Hostmask
-
         public class Hostmask {
-            #region Properties
-
             public string Hostname { get; set; }
             public string Nickname { get; set; }
             public string Username { get; set; }
-
-            #endregion
         }
-
-        #endregion
     }
 }

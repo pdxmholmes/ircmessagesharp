@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (c) 2011, Matt Holmes
+// Copyright (c) 2015, Matt Holmes
 // All rights reserved.
 // 
 // Redistribution and use in source and binary forms, with or without
@@ -31,15 +31,14 @@ using System.Threading.Tasks;
 
 namespace IrcMessageSharp {
     public class IrcStreamReader : StreamReader {
-        #region Constructors
-
         public IrcStreamReader (Stream stream)
             : base (stream) {
         }
 
-        #endregion
-
-        #region Public Methods
+        private async Task<IrcMessage> ReadMessageAsyncImpl () {
+            var line = await ReadLineAsync ();
+            return line == null ? null : IrcMessage.Parse (line);
+        }
 
         public IrcMessage ReadMessage () {
             var line = ReadLine ();
@@ -49,16 +48,5 @@ namespace IrcMessageSharp {
         public Task<IrcMessage> ReadMessageAsync () {
             return ReadMessageAsyncImpl ();
         }
-
-        #endregion
-
-        #region Private Methods
-
-        private async Task<IrcMessage> ReadMessageAsyncImpl () {
-            var line = await ReadLineAsync ();
-            return line == null ? null : IrcMessage.Parse (line);
-        }
-
-        #endregion
     }
 }

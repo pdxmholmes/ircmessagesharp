@@ -1,6 +1,8 @@
 # ``IrcMessage#``
 > A fast IRC message parser written in C# for the .NET Framework
 
+** 9/8/2015 **: After some code clean up, I now consider this complete software. 
+
 ## Installation
 We currently only support NuGet for installation
 
@@ -71,15 +73,10 @@ Hostmask has the following properties:
 - `Hostname string`: Hostname provided in the hostmask (*!*@host)
 
 ## Credit
-Based on the work of **Fionn Kelleher** ([expr](https://github.com/expr)) and his excellent [irc-message JavaScript library](https://github.com/expr/irc-message)
+Based on the work of **Fionn Kelleher** ([sigkell](https://github.com/sigkell)) and his excellent [irc-message JavaScript library](https://github.com/sigkell/irc-message)
 
 ## Tests
 IrcMessage# has a full test suite built using SpecFlow. You can find all the specs that IrcMessage# passes in the 'spec' directory. As of this writing (11/25/2014) IrcMessage# passes the same minimum set of specs as irc-message.
-
-## Roadmap
-Version Roadmap
-- 0.7.0: More work on the streaming infrastructure, IrcStreamReader is a bit bare bones
-- 1.0.0: API stabialized and most bugs squashed
 
 ## Suport
 If you find a bug or issue, please report it here on GitHub and I'll fix it ASAP.

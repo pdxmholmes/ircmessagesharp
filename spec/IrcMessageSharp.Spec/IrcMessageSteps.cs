@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (c) 2011, Matt Holmes
+// Copyright (c) 2015, Matt Holmes
 // All rights reserved.
 // 
 // Redistribution and use in source and binary forms, with or without
@@ -33,15 +33,9 @@ using TechTalk.SpecFlow;
 namespace IrcMessageSharp.Spec {
     [Binding]
     public class IrcMessageSteps {
-        #region Fields
-
         private IrcMessage.Hostmask _hostmask;
         private string _message;
         private IrcMessage _parsedMessage;
-
-        #endregion
-
-        #region Public Methods
 
         [Given (@"IRC message '(.*)'")]
         public void GivenIrcMessage (string p0) {
@@ -128,7 +122,5 @@ namespace IrcMessageSharp.Spec {
         public void WhenMessageIsParsed () {
             _parsedMessage = IrcMessage.Parse (_message);
         }
-
-        #endregion
     }
 }

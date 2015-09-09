@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (c) 2011, Matt Holmes
+// Copyright (c) 2015, Matt Holmes
 // All rights reserved.
 // 
 // Redistribution and use in source and binary forms, with or without
@@ -39,6 +39,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture ("")]
 [assembly: ComVisible (false)]
 [assembly: Guid ("99568a8a-1af0-4cee-906b-6e4d664e2402")]
-[assembly: AssemblyVersion ("0.6.0.0")]
-[assembly: AssemblyFileVersion ("0.6.0.0")]
-[assembly: AssemblyInformationalVersion ("0.6.0")]
+[assembly: AssemblyVersion ("1.0.0.0")]
+[assembly: AssemblyFileVersion ("1.0.0.0")]
+[assembly: AssemblyInformationalVersion ("1.0.0")]
