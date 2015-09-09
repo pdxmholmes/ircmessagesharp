@@ -1,7 +1,7 @@
 # ``IrcMessage#``
 > A fast IRC message parser written in C# for the .NET Framework
 
-** 9/8/2015 **: After some code clean up, I now consider this complete software. 
+**9/8/2015**: After some code clean up, I now consider this library complete. Version 1.0.0 has been pushed to NuGet.
 
 ## Installation
 We currently only support NuGet for installation
